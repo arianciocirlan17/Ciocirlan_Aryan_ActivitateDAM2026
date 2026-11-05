@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/main"
+    android:background="#F8FAFD">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvTitlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/adauga_un_avion_nou"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/etModel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/model_avion"
+            android:layout_marginTop="24dp"
+            android:background="@android:drawable/editbox_background"
+            app:layout_constraintTop_toBottomOf="@id/tvTitlu" />
+
+        <CheckBox
+            android:id="@+id/cbReactie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avionul_are_motor_cu_reactie"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etModel" />
+
+        <TextView
+            android:id="@+id/tvUtilizare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tip_utilizare"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/cbReactie"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <RadioGroup
+            android:id="@+id/rgUtilizare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvUtilizare">
+
+            <RadioButton
+                android:id="@+id/rbCivil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/civil"
+                android:checked="true"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rbMilitar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/militar"
+                android:layout_weight="1"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvProducator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/producator"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/rgUtilizare"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/spinnerProducator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:drawable/btn_dropdown"
+            app:layout_constraintTop_toBottomOf="@id/tvProducator"/>
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rating_confort_performanta"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/spinnerProducator"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvRating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Switch
+            android:id="@+id/swInServiciu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/este_in_serviciu_activ"
+            android:layout_marginTop="24dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
+        <Button
+            android:id="@+id/btnSalvare"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/adauga_avion"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/swInServiciu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

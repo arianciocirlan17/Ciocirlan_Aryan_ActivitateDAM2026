@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Laborator4</string>
+    <string name="niciun_avion_nu_a_fost_adaugat">Niciun avion nu a fost adaugat</string>
+    <string name="adauga_un_avion">Adauga un avion</string>
+    <string name="adauga_un_avion_nou">Adauga un avion nou</string>
+    <string name="model_avion">Model avion</string>
+    <string name="avionul_are_motor_cu_reactie">Avionul are motor cu reactie</string>
+    <string name="tip_utilizare">Tip utilizare</string>
+    <string name="civil">Civil</string>
+    <string name="militar">Militar</string>
+    <string name="producator">Producator</string>
+    <string name="rating_confort_performanta">Rating confort/performanta</string>
+    <string name="este_in_serviciu_activ">Este in serviciu activ</string>
+    <string name="adauga_avion">Adauga avion</string>
+    <string name="vezi_lista_avioane">Vezi lista de avioane</string>
+</resources>
