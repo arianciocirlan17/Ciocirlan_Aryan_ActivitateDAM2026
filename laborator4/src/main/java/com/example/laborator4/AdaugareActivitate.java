@@ -40,7 +40,6 @@ public class AdaugareActivitate extends AppCompatActivity {
             return insets;
         });
 
-        //leg variabilele de interfata grafica
         et = findViewById(R.id.etModel);
         cb = findViewById(R.id.cbReactie);
         rg = findViewById(R.id.rgUtilizare);
@@ -49,17 +48,14 @@ public class AdaugareActivitate extends AppCompatActivity {
         sw = findViewById(R.id.swInServiciu);
         btn = findViewById(R.id.btnSalvare);
 
-        //construiesc lista derulanta a spinner ului
         String[] producatori = {"Boeing", "Airbus", "Embraer", "Bombardier", "Lockheed Martin"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, producatori);
         sp.setAdapter(adapter);
 
-        //verific daca am primit un obiect pentru modificare
         Intent it = getIntent();
         if (it.hasExtra("avion")) {
             Avion avion = it.getParcelableExtra("avion");
 
-            //populez campurile cu datele obiectului primit
             et.setText(avion.getModel());
             cb.setChecked(avion.getAreMotorReactie());
             sw.setChecked(avion.isEsteInServiciu());

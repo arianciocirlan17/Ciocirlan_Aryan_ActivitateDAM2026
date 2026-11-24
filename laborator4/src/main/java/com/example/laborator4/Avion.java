@@ -76,7 +76,7 @@ public class Avion implements Parcelable {
 
     protected Avion(Parcel in) {
         model = in.readString();
-        areMotorReactie = in.readByte() != 0; // boolean se citeste ca byte
+        areMotorReactie = in.readByte() != 0;
         tipUtilizare = in.readString();
         producator = in.readString();
         rating = in.readFloat();
@@ -100,7 +100,6 @@ public class Avion implements Parcelable {
         return 0;
     }
 
-    //aici se scriu atributele in pachet
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeString(model);

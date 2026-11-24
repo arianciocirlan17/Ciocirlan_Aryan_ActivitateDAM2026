@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDeschide;
     private Button btnDeschideLista;
     private ArrayList<Avion> listaAvioane = new ArrayList<>();
+    private Button btnDeschideImagini;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         tvRezultat = findViewById(R.id.tvRezultat);
         btnDeschide = findViewById(R.id.btnDeschideAdaugare);
         btnDeschideLista = findViewById(R.id.btnDeschideLista);
+        btnDeschideImagini = findViewById(R.id.btnDeschideImagini);
 
         ActivityResultLauncher<Intent> launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -75,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
         btnDeschide.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AdaugareActivitate.class);
             launcher.launch(intent);
+        });
+
+        btnDeschideImagini.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ImaginiAvioaneActivitate.class);
+            startActivity(intent);
         });
     }
 }

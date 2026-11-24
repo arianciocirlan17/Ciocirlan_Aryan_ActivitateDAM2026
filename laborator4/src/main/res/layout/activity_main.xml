@@ -32,4 +32,13 @@
         android:paddingHorizontal="32dp"
         android:paddingVertical="12dp"
         android:text="@string/vezi_lista_avioane" />
+
+    <Button
+        android:id="@+id/btnDeschideImagini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
+        android:text="@string/vezi_galerie_avioane" />
 </LinearLayout>

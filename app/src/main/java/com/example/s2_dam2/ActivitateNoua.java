@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-//se lucreaza exercitiile de la seminarul 2-3
+
 public class ActivitateNoua extends AppCompatActivity {
 
     @Override
@@ -28,9 +28,9 @@ public class ActivitateNoua extends AppCompatActivity {
     }
 
     public void deschideActivitate(View view) {
-        //creez intent ul, in loc de getApplContext pot pune this
+
         Intent intent = new Intent(getApplicationContext(), ActivitateRezultat.class);
-        //dam start activity ca sa imi deschida activitatea rezultat
+
         Bundle bundle = new Bundle(); //bundle - transmiti si pastrezi temporar date sub forma de perechi cheie valoare
         bundle.putInt("numar1", 6);
         bundle.putInt("numar2", 9);
@@ -39,7 +39,7 @@ public class ActivitateNoua extends AppCompatActivity {
         startActivityForResult(intent, 37);
     }
 
-    //pot parsa datele din trecut folosint acel intent
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
