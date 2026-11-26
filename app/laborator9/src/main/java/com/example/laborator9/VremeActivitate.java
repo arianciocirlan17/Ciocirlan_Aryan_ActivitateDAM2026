@@ -37,7 +37,6 @@ public class VremeActivitate extends AppCompatActivity {
     private Button btnCauta;
     private TextView tvRezultat;
 
-    // Executor = fir secundar pentru internet; Handler = intoarcere in firul principal
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Handler handler = new Handler(Looper.getMainLooper());
 
@@ -57,7 +56,6 @@ public class VremeActivitate extends AppCompatActivity {
         btnCauta = findViewById(R.id.btnCauta);
         tvRezultat = findViewById(R.id.tvRezultat);
 
-        // Partea a III-a: spinner cu 1 zi / 5 zile
         String[] optiuni = {"1 zi", "5 zile"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, optiuni);
@@ -69,7 +67,6 @@ public class VremeActivitate extends AppCompatActivity {
                 etOras.setError("Introdu un oras!");
                 return;
             }
-            // singurul lucru care difera intre 1 si 5 zile e numele metodei din link
             String metoda = spZile.getSelectedItemPosition() == 0 ? "1day" : "5day";
             tvRezultat.setText("Se incarca...");
             cautaVremea(oras, metoda);
@@ -81,13 +78,11 @@ public class VremeActivitate extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    // ---------- Partea I: City Search -> cheia orasului ----------
                     String linkOras = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey="
                             + API_KEY + "&q=" + URLEncoder.encode(oras, "UTF-8");
 
                     String raspunsOras = citesteDeLaLink(linkOras);
 
-                    // raspunsul este un VECTOR de orase -> JSONArray
                     JSONArray vector = new JSONArray(raspunsOras);
                     if (vector.length() == 0) {
                         afiseaza("Orasul nu a fost gasit.");
@@ -101,22 +96,18 @@ public class VremeActivitate extends AppCompatActivity {
                     handler.post(() -> Toast.makeText(VremeActivitate.this,
                             "Cheie oras: " + cheieOras, Toast.LENGTH_SHORT).show());
 
-                    // ---------- Partea a II-a / a III-a: Daily Forecast ----------
-                    // metric=true -> grade Celsius (implicit vin in Fahrenheit)
                     String linkVreme = "https://dataservice.accuweather.com/forecasts/v1/daily/"
                             + metoda + "/" + cheieOras
                             + "?apikey=" + API_KEY + "&metric=true";
 
                     String raspunsVreme = citesteDeLaLink(linkVreme);
 
-                    // raspunsul este un OBIECT care contine vectorul DailyForecasts
                     JSONObject radacina = new JSONObject(raspunsVreme);
                     JSONArray zile = radacina.getJSONArray("DailyForecasts");
 
                     StringBuilder rezultat = new StringBuilder();
                     rezultat.append(numeOras).append(" (cheie: ").append(cheieOras).append(")\n\n");
 
-                    // pentru 1 zi bucla ruleaza o data, pentru 5 zile de 5 ori
                     for (int i = 0; i < zile.length(); i++) {
                         JSONObject zi = zile.getJSONObject(i);
                         String data = zi.getString("Date").substring(0, 10);
@@ -140,7 +131,6 @@ public class VremeActivitate extends AppCompatActivity {
         });
     }
 
-    // face cererea GET si intoarce tot textul primit (JSON-ul)
     private String citesteDeLaLink(String link) throws Exception {
         URL url = new URL(link);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -165,7 +155,6 @@ public class VremeActivitate extends AppCompatActivity {
         return builder.toString();
     }
 
-    // TextView-ul se poate modifica doar din firul principal -> handler.post
     private void afiseaza(String text) {
         handler.post(() -> tvRezultat.setText(text));
     }
