@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <EditText
+            android:id="@+id/etOras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nume_oras"
+             />
+
+        <Spinner
+            android:id="@+id/spZile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+
+        <Button
+            android:id="@+id/btnCauta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cauta_vremea" />
+
+        <TextView
+            android:id="@+id/tvRezultat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+             />
+    </LinearLayout>
+</ScrollView>
