@@ -31,6 +31,7 @@ import java.util.concurrent.Executors;
 public class VremeActivitate extends AppCompatActivity {
 
     private static final String API_KEY = "cheia_ta";
+    // cheie e = "zpka_4184abcef5b74abab8e06c6e2b983a8c_b6a9eaa8"
 
     private EditText etOras;
     private Spinner spZile;
